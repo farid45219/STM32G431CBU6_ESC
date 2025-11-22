@@ -383,6 +383,23 @@
       <Groups>
         <Group>
           <GroupName>inc</GroupName>
+          <Files>
+            <File>
+              <FileName>led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\led.h</FilePath>
+            </File>
+            <File>
+              <FileName>cdefs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cdefs.h</FilePath>
+            </File>
+            <File>
+              <FileName>driver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\driver.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>src</GroupName>
@@ -391,6 +408,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\driver.c</FilePath>
             </File>
           </Files>
         </Group>
