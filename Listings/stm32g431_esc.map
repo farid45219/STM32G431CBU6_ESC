@@ -5,11 +5,15 @@ Component: Arm Compiler for Embedded 6.22 Tool: armlink [5ee90200]
 Section Cross References
 
     main.o(.text.main) refers to led.o(.text.LED_Init) for LED_Init
+    main.o(.text.main) refers to pot.o(.text.Pot_Init) for Pot_Init
+    main.o(.text.main) refers to debug.o(.text.Debug_Init) for Debug_Init
     main.o(.text.main) refers to driver.o(.text.Driver_GPIO_Init) for Driver_GPIO_Init
-    main.o(.text.main) refers to led.o(.text.LED_Set_State) for LED_Set_State
     main.o(.text.main) refers to main.o(.bss.phase_index) for phase_index
     main.o(.text.main) refers to main.o(.data.phase_val) for phase_val
     main.o(.text.main) refers to driver.o(.text.Driver_Set_Phase_Values) for Driver_Set_Phase_Values
+    main.o(.text.main) refers to pot.o(.text.Pot_ADC_Read) for Pot_ADC_Read
+    main.o(.text.main) refers to main.o(.data.delay) for delay
+    main.o(.text.main) refers to main.o(.data.buffer) for buffer
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED_Init) refers to led.o(.text.LED_Init) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED_Set_State) refers to led.o(.text.LED_Set_State) for [Anonymous Symbol]
@@ -39,11 +43,224 @@ Section Cross References
     driver.o(.ARM.exidx.text.Driver_Set_Phases) refers to driver.o(.text.Driver_Set_Phases) for [Anonymous Symbol]
     driver.o(.text.Driver_Set_Phase_Values) refers to driver.o(.text.Driver_Set_Phases) for Driver_Set_Phases
     driver.o(.ARM.exidx.text.Driver_Set_Phase_Values) refers to driver.o(.text.Driver_Set_Phase_Values) for [Anonymous Symbol]
+    driver_spwm.o(.ARM.exidx.text.Driver_SPWM_GPIO_Init) refers to driver_spwm.o(.text.Driver_SPWM_GPIO_Init) for [Anonymous Symbol]
+    driver_spwm.o(.ARM.exidx.text.Driver_SPWM_Timer_Init) refers to driver_spwm.o(.text.Driver_SPWM_Timer_Init) for [Anonymous Symbol]
+    debug.o(.text.Debug_Struct_Init) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Struct_Init) refers to debug.o(.text.Debug_Struct_Init) for [Anonymous Symbol]
+    debug.o(.text.Debug_RX_Packet_Struct_Init) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_RX_Packet_Struct_Init) refers to debug.o(.text.Debug_RX_Packet_Struct_Init) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Config_GPIO) refers to debug.o(.text.Debug_Config_GPIO) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Config_Clock) refers to debug.o(.text.Debug_Config_Clock) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Config_BAUD_Rate) refers to debug.o(.text.Debug_Config_BAUD_Rate) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Config_Tx) refers to debug.o(.text.Debug_Config_Tx) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Config_Rx) refers to debug.o(.text.Debug_Config_Rx) for [Anonymous Symbol]
+    debug.o(.text.Debug_Config_Rx_Interrupt) refers to debug.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    debug.o(.text.Debug_Config_Rx_Interrupt) refers to debug.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
+    debug.o(.ARM.exidx.text.Debug_Config_Rx_Interrupt) refers to debug.o(.text.Debug_Config_Rx_Interrupt) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to debug.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.__NVIC_SetPriority) refers to debug.o(.text.__NVIC_SetPriority) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Clear_Interrupt_Flag) refers to debug.o(.text.Debug_Clear_Interrupt_Flag) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Tx_Byte) refers to debug.o(.text.Debug_Tx_Byte) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Rx_Byte) refers to debug.o(.text.Debug_Rx_Byte) for [Anonymous Symbol]
+    debug.o(.text.USART2_IRQHandler) refers to debug.o(.text.Debug_ISR_Handler) for Debug_ISR_Handler
+    debug.o(.ARM.exidx.text.USART2_IRQHandler) refers to debug.o(.text.USART2_IRQHandler) for [Anonymous Symbol]
+    debug.o(.text.Debug_ISR_Handler) refers to debug.o(.text.Debug_Clear_Interrupt_Flag) for Debug_Clear_Interrupt_Flag
+    debug.o(.text.Debug_ISR_Handler) refers to debug.o(.text.Debug_Rx_Byte) for Debug_Rx_Byte
+    debug.o(.text.Debug_ISR_Handler) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.text.Debug_ISR_Handler) refers to debug.o(.text.Debug_Timer_Value_Reset) for Debug_Timer_Value_Reset
+    debug.o(.text.Debug_ISR_Handler) refers to debug.o(.text.Debug_Timer_Enable) for Debug_Timer_Enable
+    debug.o(.ARM.exidx.text.Debug_ISR_Handler) refers to debug.o(.text.Debug_ISR_Handler) for [Anonymous Symbol]
+    debug.o(.text.Debug_Timer_Struct_Init) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Timer_Struct_Init) refers to debug.o(.text.Debug_Timer_Struct_Init) for [Anonymous Symbol]
+    debug.o(.text.Debug_Timer_Init) refers to debug.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    debug.o(.text.Debug_Timer_Init) refers to debug.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
+    debug.o(.ARM.exidx.text.Debug_Timer_Init) refers to debug.o(.text.Debug_Timer_Init) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Timer_Enable) refers to debug.o(.text.Debug_Timer_Enable) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Timer_Disable) refers to debug.o(.text.Debug_Timer_Disable) for [Anonymous Symbol]
+    debug.o(.text.Debug_Timer_Get_Status) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Timer_Get_Status) refers to debug.o(.text.Debug_Timer_Get_Status) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Timer_Get_Val) refers to debug.o(.text.Debug_Timer_Get_Val) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Timer_Value_Reset) refers to debug.o(.text.Debug_Timer_Value_Reset) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_Timer_Clear_Interrupt_Flag) refers to debug.o(.text.Debug_Timer_Clear_Interrupt_Flag) for [Anonymous Symbol]
+    debug.o(.text.TIM7_IRQHandler) refers to debug.o(.text.Debug_Timer_ISR_Handler) for Debug_Timer_ISR_Handler
+    debug.o(.ARM.exidx.text.TIM7_IRQHandler) refers to debug.o(.text.TIM7_IRQHandler) for [Anonymous Symbol]
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_Timer_Clear_Interrupt_Flag) for Debug_Timer_Clear_Interrupt_Flag
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_Timer_Disable) for Debug_Timer_Disable
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_Buf_Get_Index) for Debug_Buf_Get_Index
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_RX_Packet_CRC_Check) for Debug_RX_Packet_CRC_Check
+    debug.o(.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_Buf_Flush) for Debug_Buf_Flush
+    debug.o(.ARM.exidx.text.Debug_Timer_ISR_Handler) refers to debug.o(.text.Debug_Timer_ISR_Handler) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Buf) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_Buf) refers to debug.o(.text.Debug_Tx_Buf) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_NL) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_NL) refers to debug.o(.text.Debug_Tx_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_SP) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_SP) refers to debug.o(.text.Debug_Tx_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_CM) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_CM) refers to debug.o(.text.Debug_Tx_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Text) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_Text) refers to debug.o(.text.Debug_Tx_Text) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Text_NL) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Text_NL) refers to debug.o(.text.Debug_Tx_NL) for Debug_Tx_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Text_NL) refers to debug.o(.text.Debug_Tx_Text_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Text_SP) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Text_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Text_SP) refers to debug.o(.text.Debug_Tx_Text_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Text_CM) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Text_CM) refers to debug.o(.text.Debug_Tx_CM) for Debug_Tx_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Text_CM) refers to debug.o(.text.Debug_Tx_Text_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Determine_Digit_Numbers) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Determine_Digit_Numbers) refers to debug.o(.text.Debug_Determine_Digit_Numbers) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Digits) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.text.Debug_Tx_Number_Digits) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Digits) refers to debug.o(.text.Debug_Tx_Number_Digits) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.text.Debug_Tx_Number) refers to debug.o(.text.Debug_Determine_Digit_Numbers) for Debug_Determine_Digit_Numbers
+    debug.o(.text.Debug_Tx_Number) refers to debug.o(.text.Debug_Tx_Number_Digits) for Debug_Tx_Number_Digits
+    debug.o(.ARM.exidx.text.Debug_Tx_Number) refers to debug.o(.text.Debug_Tx_Number) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Hex) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex) refers to debug.o(.text.Debug_Tx_Number_Hex) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Bin) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin) refers to debug.o(.text.Debug_Tx_Number_Bin) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_NL) refers to debug.o(.text.Debug_Tx_Number) for Debug_Tx_Number
+    debug.o(.text.Debug_Tx_Number_NL) refers to debug.o(.text.Debug_Tx_NL) for Debug_Tx_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_NL) refers to debug.o(.text.Debug_Tx_Number_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_SP) refers to debug.o(.text.Debug_Tx_Number) for Debug_Tx_Number
+    debug.o(.text.Debug_Tx_Number_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_SP) refers to debug.o(.text.Debug_Tx_Number_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_CM) refers to debug.o(.text.Debug_Tx_Number) for Debug_Tx_Number
+    debug.o(.text.Debug_Tx_Number_CM) refers to debug.o(.text.Debug_Tx_CM) for Debug_Tx_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_CM) refers to debug.o(.text.Debug_Tx_Number_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Hex_NL) refers to debug.o(.text.Debug_Tx_Number_Hex) for Debug_Tx_Number_Hex
+    debug.o(.text.Debug_Tx_Number_Hex_NL) refers to debug.o(.text.Debug_Tx_NL) for Debug_Tx_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_NL) refers to debug.o(.text.Debug_Tx_Number_Hex_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Hex_SP) refers to debug.o(.text.Debug_Tx_Number_Hex) for Debug_Tx_Number_Hex
+    debug.o(.text.Debug_Tx_Number_Hex_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_SP) refers to debug.o(.text.Debug_Tx_Number_Hex_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Hex_CM) refers to debug.o(.text.Debug_Tx_Number_Hex) for Debug_Tx_Number_Hex
+    debug.o(.text.Debug_Tx_Number_Hex_CM) refers to debug.o(.text.Debug_Tx_CM) for Debug_Tx_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_CM) refers to debug.o(.text.Debug_Tx_Number_Hex_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Bin_NL) refers to debug.o(.text.Debug_Tx_Number_Bin) for Debug_Tx_Number_Bin
+    debug.o(.text.Debug_Tx_Number_Bin_NL) refers to debug.o(.text.Debug_Tx_NL) for Debug_Tx_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_NL) refers to debug.o(.text.Debug_Tx_Number_Bin_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Bin_SP) refers to debug.o(.text.Debug_Tx_Number_Bin) for Debug_Tx_Number_Bin
+    debug.o(.text.Debug_Tx_Number_Bin_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_SP) refers to debug.o(.text.Debug_Tx_Number_Bin_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Number_Bin_CM) refers to debug.o(.text.Debug_Tx_Number_Bin) for Debug_Tx_Number_Bin
+    debug.o(.text.Debug_Tx_Number_Bin_CM) refers to debug.o(.text.Debug_Tx_CM) for Debug_Tx_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_CM) refers to debug.o(.text.Debug_Tx_Number_Bin_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_NL) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_NL) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_NL) refers to debug.o(.text.Debug_Tx_Number_NL) for Debug_Tx_Number_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_NL) refers to debug.o(.text.Debug_Tx_Parameter_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_SP) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_SP) refers to debug.o(.text.Debug_Tx_Number_SP) for Debug_Tx_Number_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_SP) refers to debug.o(.text.Debug_Tx_Parameter_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_CM) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_CM) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_CM) refers to debug.o(.text.Debug_Tx_Number_CM) for Debug_Tx_Number_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_CM) refers to debug.o(.text.Debug_Tx_Parameter_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Hex_NL) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Hex_NL) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Hex_NL) refers to debug.o(.text.Debug_Tx_Number_Hex_NL) for Debug_Tx_Number_Hex_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_NL) refers to debug.o(.text.Debug_Tx_Parameter_Hex_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Hex_SP) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Hex_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Hex_SP) refers to debug.o(.text.Debug_Tx_Number_Hex_SP) for Debug_Tx_Number_Hex_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_SP) refers to debug.o(.text.Debug_Tx_Parameter_Hex_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Hex_CM) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Hex_CM) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Hex_CM) refers to debug.o(.text.Debug_Tx_Number_Hex_CM) for Debug_Tx_Number_Hex_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_CM) refers to debug.o(.text.Debug_Tx_Parameter_Hex_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Bin_NL) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Bin_NL) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Bin_NL) refers to debug.o(.text.Debug_Tx_Number_Bin_NL) for Debug_Tx_Number_Bin_NL
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_NL) refers to debug.o(.text.Debug_Tx_Parameter_Bin_NL) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Bin_SP) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Bin_SP) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Bin_SP) refers to debug.o(.text.Debug_Tx_Number_Bin_SP) for Debug_Tx_Number_Bin_SP
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_SP) refers to debug.o(.text.Debug_Tx_Parameter_Bin_SP) for [Anonymous Symbol]
+    debug.o(.text.Debug_Tx_Parameter_Bin_CM) refers to debug.o(.text.Debug_Tx_Text) for Debug_Tx_Text
+    debug.o(.text.Debug_Tx_Parameter_Bin_CM) refers to debug.o(.text.Debug_Tx_SP) for Debug_Tx_SP
+    debug.o(.text.Debug_Tx_Parameter_Bin_CM) refers to debug.o(.text.Debug_Tx_Number_Bin_CM) for Debug_Tx_Number_Bin_CM
+    debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_CM) refers to debug.o(.text.Debug_Tx_Parameter_Bin_CM) for [Anonymous Symbol]
+    debug.o(.text.Debug_Buf_Flush) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Buf_Flush) refers to debug.o(.text.Debug_Buf_Flush) for [Anonymous Symbol]
+    debug.o(.text.Debug_Buf_Set) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Buf_Set) refers to debug.o(.text.Debug_Buf_Set) for [Anonymous Symbol]
+    debug.o(.text.Debug_Buf_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Buf_Get) refers to debug.o(.text.Debug_Buf_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Buf_Get_Index) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Buf_Get_Index) refers to debug.o(.text.Debug_Buf_Get_Index) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Available) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Available) refers to debug.o(.text.Debug_Data_Available) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Len_Get) refers to debug.o(.text.Debug_Buf_Get_Index) for Debug_Buf_Get_Index
+    debug.o(.ARM.exidx.text.Debug_Data_Len_Get) refers to debug.o(.text.Debug_Data_Len_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Calculated_CRC_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Calculated_CRC_Get) refers to debug.o(.text.Debug_Data_Calculated_CRC_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Received_CRC_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Received_CRC_Get) refers to debug.o(.text.Debug_Data_Received_CRC_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_CRC_Status_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_CRC_Status_Get) refers to debug.o(.text.Debug_Data_CRC_Status_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Read_Complete_Status) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Read_Complete_Status) refers to debug.o(.text.Debug_Data_Read_Complete_Status) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Clear_Available_Flag) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Clear_Available_Flag) refers to debug.o(.text.Debug_Data_Clear_Available_Flag) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Clear_Read_Complete_Flag) refers to debug.o(.text.Debug_Buf_Flush) for Debug_Buf_Flush
+    debug.o(.text.Debug_Data_Clear_Read_Complete_Flag) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Data_Clear_Read_Complete_Flag) refers to debug.o(.text.Debug_Data_Clear_Read_Complete_Flag) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Copy_Buf) refers to debug.o(.text.Debug_Data_Len_Get) for Debug_Data_Len_Get
+    debug.o(.text.Debug_Data_Copy_Buf) refers to debug.o(.text.Debug_Buf_Get) for Debug_Buf_Get
+    debug.o(.ARM.exidx.text.Debug_Data_Copy_Buf) refers to debug.o(.text.Debug_Data_Copy_Buf) for [Anonymous Symbol]
+    debug.o(.text.Debug_Data_Print_Buf) refers to debug.o(.text.Debug_Data_Len_Get) for Debug_Data_Len_Get
+    debug.o(.text.Debug_Data_Print_Buf) refers to debug.o(.text.Debug_Buf_Get) for Debug_Buf_Get
+    debug.o(.text.Debug_Data_Print_Buf) refers to debug.o(.text.Debug_Tx_Byte) for Debug_Tx_Byte
+    debug.o(.text.Debug_Data_Print_Buf) refers to debug.o(.text.Debug_Tx_NL) for Debug_Tx_NL
+    debug.o(.ARM.exidx.text.Debug_Data_Print_Buf) refers to debug.o(.text.Debug_Data_Print_Buf) for [Anonymous Symbol]
+    debug.o(.text.Debug_Error_Code_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Error_Code_Get) refers to debug.o(.text.Debug_Error_Code_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_Error_Code_Clear) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Error_Code_Clear) refers to debug.o(.text.Debug_Error_Code_Clear) for [Anonymous Symbol]
+    debug.o(.text.Debug_Accumulated_CRC_Error_Get) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.ARM.exidx.text.Debug_Accumulated_CRC_Error_Get) refers to debug.o(.text.Debug_Accumulated_CRC_Error_Get) for [Anonymous Symbol]
+    debug.o(.text.Debug_RX_Packet_CRC_Check) refers to debug.o(.text.Debug_Data_Len_Get) for Debug_Data_Len_Get
+    debug.o(.text.Debug_RX_Packet_CRC_Check) refers to debug.o(.bss.Debug) for Debug
+    debug.o(.text.Debug_RX_Packet_CRC_Check) refers to debug.o(.text.Debug_CRC_Calculate_Block) for Debug_CRC_Calculate_Block
+    debug.o(.text.Debug_RX_Packet_CRC_Check) refers to debug.o(.text.Debug_Buf_Get) for Debug_Buf_Get
+    debug.o(.ARM.exidx.text.Debug_RX_Packet_CRC_Check) refers to debug.o(.text.Debug_RX_Packet_CRC_Check) for [Anonymous Symbol]
+    debug.o(.ARM.exidx.text.Debug_CRC_Calculate_Byte) refers to debug.o(.text.Debug_CRC_Calculate_Byte) for [Anonymous Symbol]
+    debug.o(.text.Debug_CRC_Calculate_Block) refers to debug.o(.text.Debug_CRC_Calculate_Byte) for Debug_CRC_Calculate_Byte
+    debug.o(.ARM.exidx.text.Debug_CRC_Calculate_Block) refers to debug.o(.text.Debug_CRC_Calculate_Block) for [Anonymous Symbol]
+    debug.o(.text.Debug_RX_Packet_Read_Complete) refers to debug.o(.text.Debug_Buf_Flush) for Debug_Buf_Flush
+    debug.o(.text.Debug_RX_Packet_Read_Complete) refers to debug.o(.text.Debug_Data_Clear_Available_Flag) for Debug_Data_Clear_Available_Flag
+    debug.o(.text.Debug_RX_Packet_Read_Complete) refers to debug.o(.text.Debug_Data_Clear_Read_Complete_Flag) for Debug_Data_Clear_Read_Complete_Flag
+    debug.o(.text.Debug_RX_Packet_Read_Complete) refers to debug.o(.text.Debug_Error_Code_Clear) for Debug_Error_Code_Clear
+    debug.o(.ARM.exidx.text.Debug_RX_Packet_Read_Complete) refers to debug.o(.text.Debug_RX_Packet_Read_Complete) for [Anonymous Symbol]
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Struct_Init) for Debug_Struct_Init
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_RX_Packet_Struct_Init) for Debug_RX_Packet_Struct_Init
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Timer_Struct_Init) for Debug_Timer_Struct_Init
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Config_GPIO) for Debug_Config_GPIO
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Config_Clock) for Debug_Config_Clock
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Config_BAUD_Rate) for Debug_Config_BAUD_Rate
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Config_Tx) for Debug_Config_Tx
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Timer_Init) for Debug_Timer_Init
+    debug.o(.text.Debug_Init) refers to debug.o(.text.Debug_Buf_Flush) for Debug_Buf_Flush
+    debug.o(.ARM.exidx.text.Debug_Init) refers to debug.o(.text.Debug_Init) for [Anonymous Symbol]
+    pot.o(.ARM.exidx.text.Pot_GPIO_Init) refers to pot.o(.text.Pot_GPIO_Init) for [Anonymous Symbol]
+    pot.o(.ARM.exidx.text.Pot_ADC_Init) refers to pot.o(.text.Pot_ADC_Init) for [Anonymous Symbol]
+    pot.o(.text.Pot_Init) refers to pot.o(.text.Pot_GPIO_Init) for Pot_GPIO_Init
+    pot.o(.text.Pot_Init) refers to pot.o(.text.Pot_ADC_Init) for Pot_ADC_Init
+    pot.o(.ARM.exidx.text.Pot_Init) refers to pot.o(.text.Pot_Init) for [Anonymous Symbol]
+    pot.o(.ARM.exidx.text.Pot_ADC_Read) refers to pot.o(.text.Pot_ADC_Read) for [Anonymous Symbol]
     startup_stm32g431xx.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g431xx.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g431xx.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g431xx.o(RESET) refers to startup_stm32g431xx.o(STACK) for __initial_sp
     startup_stm32g431xx.o(RESET) refers to startup_stm32g431xx.o(.text) for Reset_Handler
+    startup_stm32g431xx.o(RESET) refers to debug.o(.text.USART2_IRQHandler) for USART2_IRQHandler
+    startup_stm32g431xx.o(RESET) refers to debug.o(.text.TIM7_IRQHandler) for TIM7_IRQHandler
     startup_stm32g431xx.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g431xx.o(.text) refers to system_stm32g4xx.o(.text.SystemInit) for SystemInit
     startup_stm32g431xx.o(.text) refers to __main.o(!!!main) for __main
@@ -170,6 +387,7 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing led.o(.text), (0 bytes).
     Removing led.o(.ARM.exidx.text.LED_Init), (8 bytes).
+    Removing led.o(.text.LED_Set_State), (66 bytes).
     Removing led.o(.ARM.exidx.text.LED_Set_State), (8 bytes).
     Removing driver.o(.text), (0 bytes).
     Removing driver.o(.ARM.exidx.text.Driver_GPIO_Init), (8 bytes).
@@ -185,6 +403,145 @@ Removing Unused input sections from the image.
     Removing driver.o(.ARM.exidx.text.Driver_Set_W), (8 bytes).
     Removing driver.o(.ARM.exidx.text.Driver_Set_Phases), (8 bytes).
     Removing driver.o(.ARM.exidx.text.Driver_Set_Phase_Values), (8 bytes).
+    Removing driver_spwm.o(.text), (0 bytes).
+    Removing driver_spwm.o(.text.Driver_SPWM_GPIO_Init), (358 bytes).
+    Removing driver_spwm.o(.ARM.exidx.text.Driver_SPWM_GPIO_Init), (8 bytes).
+    Removing driver_spwm.o(.text.Driver_SPWM_Timer_Init), (2 bytes).
+    Removing driver_spwm.o(.ARM.exidx.text.Driver_SPWM_Timer_Init), (8 bytes).
+    Removing debug.o(.text), (0 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Struct_Init), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_RX_Packet_Struct_Init), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_GPIO), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_Clock), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_BAUD_Rate), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_Tx), (8 bytes).
+    Removing debug.o(.text.Debug_Config_Rx), (48 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_Rx), (8 bytes).
+    Removing debug.o(.text.Debug_Config_Rx_Interrupt), (40 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Config_Rx_Interrupt), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.__NVIC_SetPriority), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Clear_Interrupt_Flag), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Byte), (64 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Byte), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Rx_Byte), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.USART2_IRQHandler), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_ISR_Handler), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Struct_Init), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Init), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Enable), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Disable), (8 bytes).
+    Removing debug.o(.text.Debug_Timer_Get_Status), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Get_Status), (8 bytes).
+    Removing debug.o(.text.Debug_Timer_Get_Val), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Get_Val), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Value_Reset), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_Clear_Interrupt_Flag), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.TIM7_IRQHandler), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Timer_ISR_Handler), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Buf), (62 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Buf), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_NL), (16 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_SP), (10 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_CM), (10 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Text), (54 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Text), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Text_NL), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Text_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Text_SP), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Text_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Text_CM), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Text_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Determine_Digit_Numbers), (124 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Determine_Digit_Numbers), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Digits), (104 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Digits), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number), (44 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Hex), (196 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Bin), (124 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_NL), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_SP), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_CM), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Hex_NL), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Hex_SP), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Hex_CM), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Hex_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Bin_NL), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Bin_SP), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Number_Bin_CM), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Number_Bin_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_NL), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_SP), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_CM), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Hex_NL), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Hex_SP), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Hex_CM), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Hex_CM), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Bin_NL), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_NL), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Bin_SP), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_SP), (8 bytes).
+    Removing debug.o(.text.Debug_Tx_Parameter_Bin_CM), (28 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Tx_Parameter_Bin_CM), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Buf_Flush), (8 bytes).
+    Removing debug.o(.text.Debug_Buf_Set), (34 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Buf_Set), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Buf_Get), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Buf_Get_Index), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Available), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Available), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Len_Get), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Calculated_CRC_Get), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Calculated_CRC_Get), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Received_CRC_Get), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Received_CRC_Get), (8 bytes).
+    Removing debug.o(.text.Debug_Data_CRC_Status_Get), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_CRC_Status_Get), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Read_Complete_Status), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Read_Complete_Status), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Clear_Available_Flag), (16 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Clear_Available_Flag), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Clear_Read_Complete_Flag), (22 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Clear_Read_Complete_Flag), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Copy_Buf), (68 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Copy_Buf), (8 bytes).
+    Removing debug.o(.text.Debug_Data_Print_Buf), (66 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Data_Print_Buf), (8 bytes).
+    Removing debug.o(.text.Debug_Error_Code_Get), (12 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Error_Code_Get), (8 bytes).
+    Removing debug.o(.text.Debug_Error_Code_Clear), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Error_Code_Clear), (8 bytes).
+    Removing debug.o(.text.Debug_Accumulated_CRC_Error_Get), (14 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Accumulated_CRC_Error_Get), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_RX_Packet_CRC_Check), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_CRC_Calculate_Byte), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_CRC_Calculate_Block), (8 bytes).
+    Removing debug.o(.text.Debug_RX_Packet_Read_Complete), (20 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_RX_Packet_Read_Complete), (8 bytes).
+    Removing debug.o(.ARM.exidx.text.Debug_Init), (8 bytes).
+    Removing pot.o(.text), (0 bytes).
+    Removing pot.o(.ARM.exidx.text.Pot_GPIO_Init), (8 bytes).
+    Removing pot.o(.ARM.exidx.text.Pot_ADC_Init), (8 bytes).
+    Removing pot.o(.ARM.exidx.text.Pot_Init), (8 bytes).
+    Removing pot.o(.ARM.exidx.text.Pot_ADC_Read), (8 bytes).
     Removing system_stm32g4xx.o(.text), (0 bytes).
     Removing system_stm32g4xx.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_stm32g4xx.o(.text.SystemCoreClockUpdate), (256 bytes).
@@ -193,7 +550,7 @@ Removing Unused input sections from the image.
     Removing system_stm32g4xx.o(.rodata.AHBPrescTable), (16 bytes).
     Removing system_stm32g4xx.o(.rodata.APBPrescTable), (8 bytes).
 
-27 unused section(s) (total 432 bytes) removed from the image.
+167 unused section(s) (total 3282 bytes) removed from the image.
 
 ==============================================================================
 
@@ -256,9 +613,12 @@ Image Symbol Table
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     RTE/Device/startup_stm32g431xx.s         0x00000000   Number         0  startup_stm32g431xx.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    debug.c                                  0x00000000   Number         0  debug.o ABSOLUTE
     driver.c                                 0x00000000   Number         0  driver.o ABSOLUTE
+    driver_spwm.c                            0x00000000   Number         0  driver_spwm.o ABSOLUTE
     led.c                                    0x00000000   Number         0  led.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    pot.c                                    0x00000000   Number         0  pot.o ABSOLUTE
     system_stm32g4xx.c                       0x00000000   Number         0  system_stm32g4xx.o ABSOLUTE
     RESET                                    0x08000000   Section      472  startup_stm32g431xx.o(RESET)
     !!!main                                  0x080001d8   Section        8  __main.o(!!!main)
@@ -317,31 +677,66 @@ Image Symbol Table
     .text                                    0x08000350   Section        0  sys_exit.o(.text)
     .text                                    0x0800035c   Section        2  use_no_semi.o(.text)
     .text                                    0x0800035e   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x08000360   Section        0  driver.o(.text.Driver_GPIO_Init)
-    [Anonymous Symbol]                       0x0800043c   Section        0  driver.o(.text.Driver_Rough_Delay)
-    [Anonymous Symbol]                       0x0800045c   Section        0  driver.o(.text.Driver_Set_Phase_Values)
-    [Anonymous Symbol]                       0x080004cc   Section        0  driver.o(.text.Driver_Set_Phases)
-    [Anonymous Symbol]                       0x080004f8   Section        0  driver.o(.text.Driver_Set_U)
-    [Anonymous Symbol]                       0x08000534   Section        0  driver.o(.text.Driver_Set_UH)
-    [Anonymous Symbol]                       0x08000574   Section        0  driver.o(.text.Driver_Set_UL)
-    [Anonymous Symbol]                       0x080005b8   Section        0  driver.o(.text.Driver_Set_V)
-    [Anonymous Symbol]                       0x080005f4   Section        0  driver.o(.text.Driver_Set_VH)
-    [Anonymous Symbol]                       0x08000634   Section        0  driver.o(.text.Driver_Set_VL)
-    [Anonymous Symbol]                       0x08000674   Section        0  driver.o(.text.Driver_Set_W)
-    [Anonymous Symbol]                       0x080006b0   Section        0  driver.o(.text.Driver_Set_WH)
-    [Anonymous Symbol]                       0x080006f0   Section        0  driver.o(.text.Driver_Set_WL)
-    [Anonymous Symbol]                       0x08000734   Section        0  led.o(.text.LED_Init)
-    [Anonymous Symbol]                       0x08000770   Section        0  led.o(.text.LED_Set_State)
-    [Anonymous Symbol]                       0x080007b4   Section        0  system_stm32g4xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x080007c8   Section        0  main.o(.text.main)
-    $v0                                      0x08000860   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08000860   Section       26  fpinit.o(x$fpl$fpinit)
-    .bss                                     0x20000008   Section       96  libspace.o(.bss)
-    Heap_Mem                                 0x20000070   Data         512  startup_stm32g431xx.o(HEAP)
-    HEAP                                     0x20000070   Section      512  startup_stm32g431xx.o(HEAP)
-    Stack_Mem                                0x20000270   Data        1024  startup_stm32g431xx.o(STACK)
-    STACK                                    0x20000270   Section     1024  startup_stm32g431xx.o(STACK)
-    __initial_sp                             0x20000670   Data           0  startup_stm32g431xx.o(STACK)
+    [Anonymous Symbol]                       0x08000360   Section        0  debug.o(.text.Debug_Buf_Flush)
+    [Anonymous Symbol]                       0x080003a8   Section        0  debug.o(.text.Debug_Buf_Get)
+    [Anonymous Symbol]                       0x080003c4   Section        0  debug.o(.text.Debug_Buf_Get_Index)
+    [Anonymous Symbol]                       0x080003d4   Section        0  debug.o(.text.Debug_CRC_Calculate_Block)
+    [Anonymous Symbol]                       0x08000424   Section        0  debug.o(.text.Debug_CRC_Calculate_Byte)
+    [Anonymous Symbol]                       0x080004b8   Section        0  debug.o(.text.Debug_Clear_Interrupt_Flag)
+    [Anonymous Symbol]                       0x080004bc   Section        0  debug.o(.text.Debug_Config_BAUD_Rate)
+    [Anonymous Symbol]                       0x08000500   Section        0  debug.o(.text.Debug_Config_Clock)
+    [Anonymous Symbol]                       0x08000514   Section        0  debug.o(.text.Debug_Config_GPIO)
+    [Anonymous Symbol]                       0x080005a0   Section        0  debug.o(.text.Debug_Config_Tx)
+    [Anonymous Symbol]                       0x080005d0   Section        0  debug.o(.text.Debug_Data_Len_Get)
+    [Anonymous Symbol]                       0x080005d8   Section        0  debug.o(.text.Debug_ISR_Handler)
+    [Anonymous Symbol]                       0x08000668   Section        0  debug.o(.text.Debug_Init)
+    [Anonymous Symbol]                       0x08000698   Section        0  debug.o(.text.Debug_RX_Packet_CRC_Check)
+    [Anonymous Symbol]                       0x08000764   Section        0  debug.o(.text.Debug_RX_Packet_Struct_Init)
+    [Anonymous Symbol]                       0x08000788   Section        0  debug.o(.text.Debug_Rx_Byte)
+    [Anonymous Symbol]                       0x080007a8   Section        0  debug.o(.text.Debug_Struct_Init)
+    [Anonymous Symbol]                       0x08000894   Section        0  debug.o(.text.Debug_Timer_Clear_Interrupt_Flag)
+    [Anonymous Symbol]                       0x080008b0   Section        0  debug.o(.text.Debug_Timer_Disable)
+    [Anonymous Symbol]                       0x080008c4   Section        0  debug.o(.text.Debug_Timer_Enable)
+    [Anonymous Symbol]                       0x080008d8   Section        0  debug.o(.text.Debug_Timer_ISR_Handler)
+    [Anonymous Symbol]                       0x08000978   Section        0  debug.o(.text.Debug_Timer_Init)
+    [Anonymous Symbol]                       0x080009cc   Section        0  debug.o(.text.Debug_Timer_Struct_Init)
+    [Anonymous Symbol]                       0x080009e0   Section        0  debug.o(.text.Debug_Timer_Value_Reset)
+    [Anonymous Symbol]                       0x080009f0   Section        0  driver.o(.text.Driver_GPIO_Init)
+    [Anonymous Symbol]                       0x08000acc   Section        0  driver.o(.text.Driver_Rough_Delay)
+    [Anonymous Symbol]                       0x08000aec   Section        0  driver.o(.text.Driver_Set_Phase_Values)
+    [Anonymous Symbol]                       0x08000b5c   Section        0  driver.o(.text.Driver_Set_Phases)
+    [Anonymous Symbol]                       0x08000b88   Section        0  driver.o(.text.Driver_Set_U)
+    [Anonymous Symbol]                       0x08000bc4   Section        0  driver.o(.text.Driver_Set_UH)
+    [Anonymous Symbol]                       0x08000c04   Section        0  driver.o(.text.Driver_Set_UL)
+    [Anonymous Symbol]                       0x08000c48   Section        0  driver.o(.text.Driver_Set_V)
+    [Anonymous Symbol]                       0x08000c84   Section        0  driver.o(.text.Driver_Set_VH)
+    [Anonymous Symbol]                       0x08000cc4   Section        0  driver.o(.text.Driver_Set_VL)
+    [Anonymous Symbol]                       0x08000d04   Section        0  driver.o(.text.Driver_Set_W)
+    [Anonymous Symbol]                       0x08000d40   Section        0  driver.o(.text.Driver_Set_WH)
+    [Anonymous Symbol]                       0x08000d80   Section        0  driver.o(.text.Driver_Set_WL)
+    [Anonymous Symbol]                       0x08000dc4   Section        0  led.o(.text.LED_Init)
+    [Anonymous Symbol]                       0x08000e00   Section        0  pot.o(.text.Pot_ADC_Init)
+    [Anonymous Symbol]                       0x08000e8c   Section        0  pot.o(.text.Pot_ADC_Read)
+    [Anonymous Symbol]                       0x08000eb8   Section        0  pot.o(.text.Pot_GPIO_Init)
+    [Anonymous Symbol]                       0x08000edc   Section        0  pot.o(.text.Pot_Init)
+    [Anonymous Symbol]                       0x08000ee8   Section        0  system_stm32g4xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08000efc   Section        0  debug.o(.text.TIM7_IRQHandler)
+    [Anonymous Symbol]                       0x08000f04   Section        0  debug.o(.text.USART2_IRQHandler)
+    __NVIC_EnableIRQ                         0x08000f0d   Thumb Code    48  debug.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000f0c   Section        0  debug.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x08000f3d   Thumb Code    66  debug.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000f3c   Section        0  debug.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000f80   Section        0  main.o(.text.main)
+    $v0                                      0x0800108a   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x0800108a   Section       26  fpinit.o(x$fpl$fpinit)
+    .bss                                     0x20000010   Section       96  libspace.o(.bss)
+    Debug                                    0x20000070   Data         192  debug.o(.bss.Debug)
+    [Anonymous Symbol]                       0x20000070   Section        0  debug.o(.bss.Debug)
+    Heap_Mem                                 0x20000138   Data         512  startup_stm32g431xx.o(HEAP)
+    HEAP                                     0x20000138   Section      512  startup_stm32g431xx.o(HEAP)
+    Stack_Mem                                0x20000338   Data        1024  startup_stm32g431xx.o(STACK)
+    STACK                                    0x20000338   Section     1024  startup_stm32g431xx.o(STACK)
+    __initial_sp                             0x20000738   Data           0  startup_stm32g431xx.o(STACK)
 
     Global Symbols
 
@@ -496,7 +891,6 @@ Image Symbol Table
     TIM3_IRQHandler                          0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     TIM4_IRQHandler                          0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     TIM6_DAC_IRQHandler                      0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
-    TIM7_IRQHandler                          0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     TIM8_BRK_IRQHandler                      0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     TIM8_CC_IRQHandler                       0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     TIM8_TRG_COM_IRQHandler                  0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
@@ -504,7 +898,6 @@ Image Symbol Table
     UART4_IRQHandler                         0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     UCPD1_IRQHandler                         0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     USART1_IRQHandler                        0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
-    USART2_IRQHandler                        0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     USART3_IRQHandler                        0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     USBWakeUp_IRQHandler                     0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
     USB_HP_IRQHandler                        0x080002bf   Thumb Code     0  startup_stm32g431xx.o(.text)
@@ -523,32 +916,63 @@ Image Symbol Table
     __I$use$semihosting                      0x0800035d   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x0800035d   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x0800035f   Thumb Code     0  indicate_semi.o(.text)
-    Driver_GPIO_Init                         0x08000361   Thumb Code   220  driver.o(.text.Driver_GPIO_Init)
-    Driver_Rough_Delay                       0x0800043d   Thumb Code    32  driver.o(.text.Driver_Rough_Delay)
-    Driver_Set_Phase_Values                  0x0800045d   Thumb Code   110  driver.o(.text.Driver_Set_Phase_Values)
-    Driver_Set_Phases                        0x080004cd   Thumb Code    44  driver.o(.text.Driver_Set_Phases)
-    Driver_Set_U                             0x080004f9   Thumb Code    58  driver.o(.text.Driver_Set_U)
-    Driver_Set_UH                            0x08000535   Thumb Code    62  driver.o(.text.Driver_Set_UH)
-    Driver_Set_UL                            0x08000575   Thumb Code    66  driver.o(.text.Driver_Set_UL)
-    Driver_Set_V                             0x080005b9   Thumb Code    58  driver.o(.text.Driver_Set_V)
-    Driver_Set_VH                            0x080005f5   Thumb Code    62  driver.o(.text.Driver_Set_VH)
-    Driver_Set_VL                            0x08000635   Thumb Code    62  driver.o(.text.Driver_Set_VL)
-    Driver_Set_W                             0x08000675   Thumb Code    58  driver.o(.text.Driver_Set_W)
-    Driver_Set_WH                            0x080006b1   Thumb Code    62  driver.o(.text.Driver_Set_WH)
-    Driver_Set_WL                            0x080006f1   Thumb Code    66  driver.o(.text.Driver_Set_WL)
-    LED_Init                                 0x08000735   Thumb Code    58  led.o(.text.LED_Init)
-    LED_Set_State                            0x08000771   Thumb Code    66  led.o(.text.LED_Set_State)
-    SystemInit                               0x080007b5   Thumb Code    18  system_stm32g4xx.o(.text.SystemInit)
-    main                                     0x080007c9   Thumb Code   152  main.o(.text.main)
-    _fp_init                                 0x08000861   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08000879   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08000879   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x0800087c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800089c   Number         0  anon$$obj.o(Region$$Table)
-    phase_val                                0x20000000   Data           6  main.o(.data.phase_val)
-    __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
-    phase_index                              0x20000068   Data           1  main.o(.bss.phase_index)
+    Debug_Buf_Flush                          0x08000361   Thumb Code    70  debug.o(.text.Debug_Buf_Flush)
+    Debug_Buf_Get                            0x080003a9   Thumb Code    26  debug.o(.text.Debug_Buf_Get)
+    Debug_Buf_Get_Index                      0x080003c5   Thumb Code    14  debug.o(.text.Debug_Buf_Get_Index)
+    Debug_CRC_Calculate_Block                0x080003d5   Thumb Code    78  debug.o(.text.Debug_CRC_Calculate_Block)
+    Debug_CRC_Calculate_Byte                 0x08000425   Thumb Code   148  debug.o(.text.Debug_CRC_Calculate_Byte)
+    Debug_Clear_Interrupt_Flag               0x080004b9   Thumb Code     2  debug.o(.text.Debug_Clear_Interrupt_Flag)
+    Debug_Config_BAUD_Rate                   0x080004bd   Thumb Code    68  debug.o(.text.Debug_Config_BAUD_Rate)
+    Debug_Config_Clock                       0x08000501   Thumb Code    18  debug.o(.text.Debug_Config_Clock)
+    Debug_Config_GPIO                        0x08000515   Thumb Code   138  debug.o(.text.Debug_Config_GPIO)
+    Debug_Config_Tx                          0x080005a1   Thumb Code    48  debug.o(.text.Debug_Config_Tx)
+    Debug_Data_Len_Get                       0x080005d1   Thumb Code     8  debug.o(.text.Debug_Data_Len_Get)
+    Debug_ISR_Handler                        0x080005d9   Thumb Code   144  debug.o(.text.Debug_ISR_Handler)
+    Debug_Init                               0x08000669   Thumb Code    48  debug.o(.text.Debug_Init)
+    Debug_RX_Packet_CRC_Check                0x08000699   Thumb Code   204  debug.o(.text.Debug_RX_Packet_CRC_Check)
+    Debug_RX_Packet_Struct_Init              0x08000765   Thumb Code    36  debug.o(.text.Debug_RX_Packet_Struct_Init)
+    Debug_Rx_Byte                            0x08000789   Thumb Code    30  debug.o(.text.Debug_Rx_Byte)
+    Debug_Struct_Init                        0x080007a9   Thumb Code   234  debug.o(.text.Debug_Struct_Init)
+    Debug_Timer_Clear_Interrupt_Flag         0x08000895   Thumb Code    26  debug.o(.text.Debug_Timer_Clear_Interrupt_Flag)
+    Debug_Timer_Disable                      0x080008b1   Thumb Code    18  debug.o(.text.Debug_Timer_Disable)
+    Debug_Timer_Enable                       0x080008c5   Thumb Code    18  debug.o(.text.Debug_Timer_Enable)
+    Debug_Timer_ISR_Handler                  0x080008d9   Thumb Code   158  debug.o(.text.Debug_Timer_ISR_Handler)
+    Debug_Timer_Init                         0x08000979   Thumb Code    82  debug.o(.text.Debug_Timer_Init)
+    Debug_Timer_Struct_Init                  0x080009cd   Thumb Code    20  debug.o(.text.Debug_Timer_Struct_Init)
+    Debug_Timer_Value_Reset                  0x080009e1   Thumb Code    14  debug.o(.text.Debug_Timer_Value_Reset)
+    Driver_GPIO_Init                         0x080009f1   Thumb Code   220  driver.o(.text.Driver_GPIO_Init)
+    Driver_Rough_Delay                       0x08000acd   Thumb Code    32  driver.o(.text.Driver_Rough_Delay)
+    Driver_Set_Phase_Values                  0x08000aed   Thumb Code   110  driver.o(.text.Driver_Set_Phase_Values)
+    Driver_Set_Phases                        0x08000b5d   Thumb Code    44  driver.o(.text.Driver_Set_Phases)
+    Driver_Set_U                             0x08000b89   Thumb Code    58  driver.o(.text.Driver_Set_U)
+    Driver_Set_UH                            0x08000bc5   Thumb Code    62  driver.o(.text.Driver_Set_UH)
+    Driver_Set_UL                            0x08000c05   Thumb Code    66  driver.o(.text.Driver_Set_UL)
+    Driver_Set_V                             0x08000c49   Thumb Code    58  driver.o(.text.Driver_Set_V)
+    Driver_Set_VH                            0x08000c85   Thumb Code    62  driver.o(.text.Driver_Set_VH)
+    Driver_Set_VL                            0x08000cc5   Thumb Code    62  driver.o(.text.Driver_Set_VL)
+    Driver_Set_W                             0x08000d05   Thumb Code    58  driver.o(.text.Driver_Set_W)
+    Driver_Set_WH                            0x08000d41   Thumb Code    62  driver.o(.text.Driver_Set_WH)
+    Driver_Set_WL                            0x08000d81   Thumb Code    66  driver.o(.text.Driver_Set_WL)
+    LED_Init                                 0x08000dc5   Thumb Code    58  led.o(.text.LED_Init)
+    Pot_ADC_Init                             0x08000e01   Thumb Code   138  pot.o(.text.Pot_ADC_Init)
+    Pot_ADC_Read                             0x08000e8d   Thumb Code    44  pot.o(.text.Pot_ADC_Read)
+    Pot_GPIO_Init                            0x08000eb9   Thumb Code    34  pot.o(.text.Pot_GPIO_Init)
+    Pot_Init                                 0x08000edd   Thumb Code    12  pot.o(.text.Pot_Init)
+    SystemInit                               0x08000ee9   Thumb Code    18  system_stm32g4xx.o(.text.SystemInit)
+    TIM7_IRQHandler                          0x08000efd   Thumb Code     8  debug.o(.text.TIM7_IRQHandler)
+    USART2_IRQHandler                        0x08000f05   Thumb Code     8  debug.o(.text.USART2_IRQHandler)
+    main                                     0x08000f81   Thumb Code   266  main.o(.text.main)
+    _fp_init                                 0x0800108b   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x080010a3   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x080010a3   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x080010a4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080010c4   Number         0  anon$$obj.o(Region$$Table)
+    buffer                                   0x20000000   Data           2  main.o(.data.buffer)
+    delay                                    0x20000002   Data           2  main.o(.data.delay)
+    phase_val                                0x20000004   Data           6  main.o(.data.phase_val)
+    __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000070   Data           0  libspace.o(.bss)
+    phase_index                              0x20000130   Data           1  main.o(.bss.phase_index)
 
 
 
@@ -558,119 +982,169 @@ Memory Map of the image
 
   Image Entry point : 0x080001d9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000008a8, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000010d8, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000089c, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000010c4, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000001d8   Data   RO           58    RESET               startup_stm32g431xx.o
-    0x080001d8   0x080001d8   0x00000008   Code   RO           83  * !!!main             c_w.l(__main.o)
-    0x080001e0   0x080001e0   0x0000005c   Code   RO          248    !!!scatter          c_w.l(__scatter.o)
-    0x0800023c   0x0800023c   0x0000001a   Code   RO          252    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x08000000   0x000001d8   Data   RO          250    RESET               startup_stm32g431xx.o
+    0x080001d8   0x080001d8   0x00000008   Code   RO          275  * !!!main             c_w.l(__main.o)
+    0x080001e0   0x080001e0   0x0000005c   Code   RO          440    !!!scatter          c_w.l(__scatter.o)
+    0x0800023c   0x0800023c   0x0000001a   Code   RO          444    !!handler_copy      c_w.l(__scatter_copy.o)
     0x08000256   0x08000256   0x00000002   PAD
-    0x08000258   0x08000258   0x00000002   Code   RO          249    !!handler_null      c_w.l(__scatter.o)
+    0x08000258   0x08000258   0x00000002   Code   RO          441    !!handler_null      c_w.l(__scatter.o)
     0x0800025a   0x0800025a   0x00000002   PAD
-    0x0800025c   0x0800025c   0x0000001c   Code   RO          254    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x08000278   0x08000278   0x00000002   Code   RO          110    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x0800027a   0x0800027a   0x00000004   Code   RO          116    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          119    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          121    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          124    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          126    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          128    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          131    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          133    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          135    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          137    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          139    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          141    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          143    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          145    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          147    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          149    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          151    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          155    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          157    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          159    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000000   Code   RO          161    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x0800027e   0x0800027e   0x00000002   Code   RO          162    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x08000280   0x08000280   0x00000002   Code   RO          184    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          199    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          201    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          204    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          207    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          209    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000000   Code   RO          212    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000282   0x08000282   0x00000002   Code   RO          213    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x08000284   0x08000284   0x00000000   Code   RO           85    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000284   0x08000284   0x00000000   Code   RO           87    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000284   0x08000284   0x00000006   Code   RO           99    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0800028a   0x0800028a   0x00000000   Code   RO           89    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0800028a   0x0800028a   0x00000004   Code   RO           90    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0800028e   0x0800028e   0x00000000   Code   RO           92    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0800028e   0x0800028e   0x00000008   Code   RO           93    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x08000296   0x08000296   0x00000002   Code   RO          114    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x08000298   0x08000298   0x00000000   Code   RO          164    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x08000298   0x08000298   0x00000004   Code   RO          165    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x0800029c   0x0800029c   0x00000006   Code   RO          166    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x0800025c   0x0800025c   0x0000001c   Code   RO          446    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000278   0x08000278   0x00000002   Code   RO          302    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x0800027a   0x0800027a   0x00000004   Code   RO          308    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          311    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          313    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          316    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          318    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          320    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          323    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          325    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          327    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          329    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          331    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          333    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          335    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          337    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          339    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          341    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          343    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          347    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          349    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          351    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000000   Code   RO          353    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x0800027e   0x0800027e   0x00000002   Code   RO          354    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x08000280   0x08000280   0x00000002   Code   RO          376    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          391    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          393    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          396    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          399    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          401    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000000   Code   RO          404    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000282   0x08000282   0x00000002   Code   RO          405    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000284   0x08000284   0x00000000   Code   RO          277    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000284   0x08000284   0x00000000   Code   RO          279    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000284   0x08000284   0x00000006   Code   RO          291    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800028a   0x0800028a   0x00000000   Code   RO          281    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800028a   0x0800028a   0x00000004   Code   RO          282    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0800028e   0x0800028e   0x00000000   Code   RO          284    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0800028e   0x0800028e   0x00000008   Code   RO          285    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x08000296   0x08000296   0x00000002   Code   RO          306    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x08000298   0x08000298   0x00000000   Code   RO          356    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x08000298   0x08000298   0x00000004   Code   RO          357    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x0800029c   0x0800029c   0x00000006   Code   RO          358    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x080002a2   0x080002a2   0x00000002   PAD
-    0x080002a4   0x080002a4   0x00000040   Code   RO           59    .text               startup_stm32g431xx.o
-    0x080002e4   0x080002e4   0x00000006   Code   RO           81    .text               c_w.l(heapauxi.o)
-    0x080002ea   0x080002ea   0x0000004a   Code   RO          101    .text               c_w.l(sys_stackheap_outer.o)
-    0x08000334   0x08000334   0x00000012   Code   RO          103    .text               c_w.l(exit.o)
+    0x080002a4   0x080002a4   0x00000040   Code   RO          251    .text               startup_stm32g431xx.o
+    0x080002e4   0x080002e4   0x00000006   Code   RO          273    .text               c_w.l(heapauxi.o)
+    0x080002ea   0x080002ea   0x0000004a   Code   RO          293    .text               c_w.l(sys_stackheap_outer.o)
+    0x08000334   0x08000334   0x00000012   Code   RO          295    .text               c_w.l(exit.o)
     0x08000346   0x08000346   0x00000002   PAD
-    0x08000348   0x08000348   0x00000008   Code   RO          111    .text               c_w.l(libspace.o)
-    0x08000350   0x08000350   0x0000000c   Code   RO          174    .text               c_w.l(sys_exit.o)
-    0x0800035c   0x0800035c   0x00000002   Code   RO          189    .text               c_w.l(use_no_semi.o)
-    0x0800035e   0x0800035e   0x00000000   Code   RO          191    .text               c_w.l(indicate_semi.o)
+    0x08000348   0x08000348   0x00000008   Code   RO          303    .text               c_w.l(libspace.o)
+    0x08000350   0x08000350   0x0000000c   Code   RO          366    .text               c_w.l(sys_exit.o)
+    0x0800035c   0x0800035c   0x00000002   Code   RO          381    .text               c_w.l(use_no_semi.o)
+    0x0800035e   0x0800035e   0x00000000   Code   RO          383    .text               c_w.l(indicate_semi.o)
     0x0800035e   0x0800035e   0x00000002   PAD
-    0x08000360   0x08000360   0x000000dc   Code   RO           24    .text.Driver_GPIO_Init  driver.o
-    0x0800043c   0x0800043c   0x00000020   Code   RO           38    .text.Driver_Rough_Delay  driver.o
-    0x0800045c   0x0800045c   0x0000006e   Code   RO           48    .text.Driver_Set_Phase_Values  driver.o
-    0x080004ca   0x080004ca   0x00000002   PAD
-    0x080004cc   0x080004cc   0x0000002c   Code   RO           46    .text.Driver_Set_Phases  driver.o
-    0x080004f8   0x080004f8   0x0000003a   Code   RO           40    .text.Driver_Set_U  driver.o
-    0x08000532   0x08000532   0x00000002   PAD
-    0x08000534   0x08000534   0x0000003e   Code   RO           26    .text.Driver_Set_UH  driver.o
-    0x08000572   0x08000572   0x00000002   PAD
-    0x08000574   0x08000574   0x00000042   Code   RO           28    .text.Driver_Set_UL  driver.o
-    0x080005b6   0x080005b6   0x00000002   PAD
-    0x080005b8   0x080005b8   0x0000003a   Code   RO           42    .text.Driver_Set_V  driver.o
-    0x080005f2   0x080005f2   0x00000002   PAD
-    0x080005f4   0x080005f4   0x0000003e   Code   RO           30    .text.Driver_Set_VH  driver.o
-    0x08000632   0x08000632   0x00000002   PAD
-    0x08000634   0x08000634   0x0000003e   Code   RO           32    .text.Driver_Set_VL  driver.o
-    0x08000672   0x08000672   0x00000002   PAD
-    0x08000674   0x08000674   0x0000003a   Code   RO           44    .text.Driver_Set_W  driver.o
-    0x080006ae   0x080006ae   0x00000002   PAD
-    0x080006b0   0x080006b0   0x0000003e   Code   RO           34    .text.Driver_Set_WH  driver.o
-    0x080006ee   0x080006ee   0x00000002   PAD
-    0x080006f0   0x080006f0   0x00000042   Code   RO           36    .text.Driver_Set_WL  driver.o
-    0x08000732   0x08000732   0x00000002   PAD
-    0x08000734   0x08000734   0x0000003a   Code   RO           13    .text.LED_Init      led.o
-    0x0800076e   0x0800076e   0x00000002   PAD
-    0x08000770   0x08000770   0x00000042   Code   RO           15    .text.LED_Set_State  led.o
-    0x080007b2   0x080007b2   0x00000002   PAD
-    0x080007b4   0x080007b4   0x00000012   Code   RO           66    .text.SystemInit    system_stm32g4xx.o
-    0x080007c6   0x080007c6   0x00000002   PAD
-    0x080007c8   0x080007c8   0x00000098   Code   RO            2    .text.main          main.o
-    0x08000860   0x08000860   0x0000001a   Code   RO          172    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x0800087a   0x0800087a   0x00000002   PAD
-    0x0800087c   0x0800087c   0x00000020   Data   RO          247    Region$$Table       anon$$obj.o
+    0x08000360   0x08000360   0x00000046   Code   RO          182    .text.Debug_Buf_Flush  debug.o
+    0x080003a6   0x080003a6   0x00000002   PAD
+    0x080003a8   0x080003a8   0x0000001a   Code   RO          186    .text.Debug_Buf_Get  debug.o
+    0x080003c2   0x080003c2   0x00000002   PAD
+    0x080003c4   0x080003c4   0x0000000e   Code   RO          188    .text.Debug_Buf_Get_Index  debug.o
+    0x080003d2   0x080003d2   0x00000002   PAD
+    0x080003d4   0x080003d4   0x0000004e   Code   RO          220    .text.Debug_CRC_Calculate_Block  debug.o
+    0x08000422   0x08000422   0x00000002   PAD
+    0x08000424   0x08000424   0x00000094   Code   RO          218    .text.Debug_CRC_Calculate_Byte  debug.o
+    0x080004b8   0x080004b8   0x00000002   Code   RO           90    .text.Debug_Clear_Interrupt_Flag  debug.o
+    0x080004ba   0x080004ba   0x00000002   PAD
+    0x080004bc   0x080004bc   0x00000044   Code   RO           78    .text.Debug_Config_BAUD_Rate  debug.o
+    0x08000500   0x08000500   0x00000012   Code   RO           76    .text.Debug_Config_Clock  debug.o
+    0x08000512   0x08000512   0x00000002   PAD
+    0x08000514   0x08000514   0x0000008a   Code   RO           74    .text.Debug_Config_GPIO  debug.o
+    0x0800059e   0x0800059e   0x00000002   PAD
+    0x080005a0   0x080005a0   0x00000030   Code   RO           80    .text.Debug_Config_Tx  debug.o
+    0x080005d0   0x080005d0   0x00000008   Code   RO          192    .text.Debug_Data_Len_Get  debug.o
+    0x080005d8   0x080005d8   0x00000090   Code   RO           98    .text.Debug_ISR_Handler  debug.o
+    0x08000668   0x08000668   0x00000030   Code   RO          224    .text.Debug_Init    debug.o
+    0x08000698   0x08000698   0x000000cc   Code   RO          216    .text.Debug_RX_Packet_CRC_Check  debug.o
+    0x08000764   0x08000764   0x00000024   Code   RO           72    .text.Debug_RX_Packet_Struct_Init  debug.o
+    0x08000788   0x08000788   0x0000001e   Code   RO           94    .text.Debug_Rx_Byte  debug.o
+    0x080007a6   0x080007a6   0x00000002   PAD
+    0x080007a8   0x080007a8   0x000000ea   Code   RO           70    .text.Debug_Struct_Init  debug.o
+    0x08000892   0x08000892   0x00000002   PAD
+    0x08000894   0x08000894   0x0000001a   Code   RO          114    .text.Debug_Timer_Clear_Interrupt_Flag  debug.o
+    0x080008ae   0x080008ae   0x00000002   PAD
+    0x080008b0   0x080008b0   0x00000012   Code   RO          106    .text.Debug_Timer_Disable  debug.o
+    0x080008c2   0x080008c2   0x00000002   PAD
+    0x080008c4   0x080008c4   0x00000012   Code   RO          104    .text.Debug_Timer_Enable  debug.o
+    0x080008d6   0x080008d6   0x00000002   PAD
+    0x080008d8   0x080008d8   0x0000009e   Code   RO          118    .text.Debug_Timer_ISR_Handler  debug.o
+    0x08000976   0x08000976   0x00000002   PAD
+    0x08000978   0x08000978   0x00000052   Code   RO          102    .text.Debug_Timer_Init  debug.o
+    0x080009ca   0x080009ca   0x00000002   PAD
+    0x080009cc   0x080009cc   0x00000014   Code   RO          100    .text.Debug_Timer_Struct_Init  debug.o
+    0x080009e0   0x080009e0   0x0000000e   Code   RO          112    .text.Debug_Timer_Value_Reset  debug.o
+    0x080009ee   0x080009ee   0x00000002   PAD
+    0x080009f0   0x080009f0   0x000000dc   Code   RO           26    .text.Driver_GPIO_Init  driver.o
+    0x08000acc   0x08000acc   0x00000020   Code   RO           40    .text.Driver_Rough_Delay  driver.o
+    0x08000aec   0x08000aec   0x0000006e   Code   RO           50    .text.Driver_Set_Phase_Values  driver.o
+    0x08000b5a   0x08000b5a   0x00000002   PAD
+    0x08000b5c   0x08000b5c   0x0000002c   Code   RO           48    .text.Driver_Set_Phases  driver.o
+    0x08000b88   0x08000b88   0x0000003a   Code   RO           42    .text.Driver_Set_U  driver.o
+    0x08000bc2   0x08000bc2   0x00000002   PAD
+    0x08000bc4   0x08000bc4   0x0000003e   Code   RO           28    .text.Driver_Set_UH  driver.o
+    0x08000c02   0x08000c02   0x00000002   PAD
+    0x08000c04   0x08000c04   0x00000042   Code   RO           30    .text.Driver_Set_UL  driver.o
+    0x08000c46   0x08000c46   0x00000002   PAD
+    0x08000c48   0x08000c48   0x0000003a   Code   RO           44    .text.Driver_Set_V  driver.o
+    0x08000c82   0x08000c82   0x00000002   PAD
+    0x08000c84   0x08000c84   0x0000003e   Code   RO           32    .text.Driver_Set_VH  driver.o
+    0x08000cc2   0x08000cc2   0x00000002   PAD
+    0x08000cc4   0x08000cc4   0x0000003e   Code   RO           34    .text.Driver_Set_VL  driver.o
+    0x08000d02   0x08000d02   0x00000002   PAD
+    0x08000d04   0x08000d04   0x0000003a   Code   RO           46    .text.Driver_Set_W  driver.o
+    0x08000d3e   0x08000d3e   0x00000002   PAD
+    0x08000d40   0x08000d40   0x0000003e   Code   RO           36    .text.Driver_Set_WH  driver.o
+    0x08000d7e   0x08000d7e   0x00000002   PAD
+    0x08000d80   0x08000d80   0x00000042   Code   RO           38    .text.Driver_Set_WL  driver.o
+    0x08000dc2   0x08000dc2   0x00000002   PAD
+    0x08000dc4   0x08000dc4   0x0000003a   Code   RO           15    .text.LED_Init      led.o
+    0x08000dfe   0x08000dfe   0x00000002   PAD
+    0x08000e00   0x08000e00   0x0000008a   Code   RO          236    .text.Pot_ADC_Init  pot.o
+    0x08000e8a   0x08000e8a   0x00000002   PAD
+    0x08000e8c   0x08000e8c   0x0000002c   Code   RO          240    .text.Pot_ADC_Read  pot.o
+    0x08000eb8   0x08000eb8   0x00000022   Code   RO          234    .text.Pot_GPIO_Init  pot.o
+    0x08000eda   0x08000eda   0x00000002   PAD
+    0x08000edc   0x08000edc   0x0000000c   Code   RO          238    .text.Pot_Init      pot.o
+    0x08000ee8   0x08000ee8   0x00000012   Code   RO          258    .text.SystemInit    system_stm32g4xx.o
+    0x08000efa   0x08000efa   0x00000002   PAD
+    0x08000efc   0x08000efc   0x00000008   Code   RO          116    .text.TIM7_IRQHandler  debug.o
+    0x08000f04   0x08000f04   0x00000008   Code   RO           96    .text.USART2_IRQHandler  debug.o
+    0x08000f0c   0x08000f0c   0x00000030   Code   RO           86    .text.__NVIC_EnableIRQ  debug.o
+    0x08000f3c   0x08000f3c   0x00000042   Code   RO           88    .text.__NVIC_SetPriority  debug.o
+    0x08000f7e   0x08000f7e   0x00000002   PAD
+    0x08000f80   0x08000f80   0x0000010a   Code   RO            2    .text.main          main.o
+    0x0800108a   0x0800108a   0x0000001a   Code   RO          364    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x080010a4   0x080010a4   0x00000020   Data   RO          439    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080008a0, Size: 0x00000670, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080010c8, Size: 0x00000738, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080008a0   0x00000006   Data   RW            5    .data.phase_val     main.o
-    0x20000006   0x080008a6   0x00000002   PAD
-    0x20000008        -       0x00000060   Zero   RW          112    .bss                c_w.l(libspace.o)
-    0x20000068        -       0x00000001   Zero   RW            4    .bss.phase_index    main.o
-    0x20000069   0x080008a6   0x00000007   PAD
-    0x20000070        -       0x00000200   Zero   RW           57    HEAP                startup_stm32g431xx.o
-    0x20000270        -       0x00000400   Zero   RW           56    STACK               startup_stm32g431xx.o
+    0x20000000   0x080010c8   0x00000002   Data   RW            7    .data.buffer        main.o
+    0x20000002   0x080010ca   0x00000002   Data   RW            6    .data.delay         main.o
+    0x20000004   0x080010cc   0x00000006   Data   RW            5    .data.phase_val     main.o
+    0x2000000a   0x080010d2   0x00000006   PAD
+    0x20000010        -       0x00000060   Zero   RW          304    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x000000c0   Zero   RW          226    .bss.Debug          debug.o
+    0x20000130        -       0x00000001   Zero   RW            4    .bss.phase_index    main.o
+    0x20000131   0x080010d2   0x00000007   PAD
+    0x20000138        -       0x00000200   Zero   RW          249    HEAP                startup_stm32g431xx.o
+    0x20000338        -       0x00000400   Zero   RW          248    STACK               startup_stm32g431xx.o
 
 
 ==============================================================================
@@ -680,16 +1154,18 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
+      1780          0          0          0        192      17859   debug.o
        960          0          0          0          0       3682   driver.o
-       124          0          0          0          0       1919   led.o
-       152          0          0          6          1        818   main.o
+        58          0          0          0          0       1919   led.o
+       266          0          0         10          1        943   main.o
+       228          0          0          0          0       2985   pot.o
         64         26        472          0       1536        860   startup_stm32g431xx.o
         18          0          0          0          0       2725   system_stm32g4xx.o
 
     ----------------------------------------------------------------------
-      1344         26        504          8       1544      10004   Object Totals
+      3434         26        504         12       1740      30973   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        26          0          0          2          7          0   (incl. Padding)
+        60          0          0          2         11          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -718,8 +1194,8 @@ Image component sizes
         26          0          0          0          0        116   fpinit.o
 
     ----------------------------------------------------------------------
-       356         16          0          0         96        700   Library Totals
-        12          0          0          0          0          0   (incl. Padding)
+       354         16          0          0         96        700   Library Totals
+        10          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -729,7 +1205,7 @@ Image component sizes
         26          0          0          0          0        116   fz_wm.l
 
     ----------------------------------------------------------------------
-       356         16          0          0         96        700   Library Totals
+       354         16          0          0         96        700   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -738,15 +1214,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1700         42        504          8       1640      10556   Grand Totals
-      1700         42        504          8       1640      10556   ELF Image Totals
-      1700         42        504          8          0          0   ROM Totals
+      3788         42        504         12       1836      31485   Grand Totals
+      3788         42        504         12       1836      31485   ELF Image Totals
+      3788         42        504         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2204 (   2.15kB)
-    Total RW  Size (RW Data + ZI Data)              1648 (   1.61kB)
-    Total ROM Size (Code + RO Data + RW Data)       2212 (   2.16kB)
+    Total RO  Size (Code + RO Data)                 4292 (   4.19kB)
+    Total RW  Size (RW Data + ZI Data)              1848 (   1.80kB)
+    Total ROM Size (Code + RO Data + RW Data)       4304 (   4.20kB)
 
 ==============================================================================
 

@@ -399,6 +399,21 @@
               <FileType>5</FileType>
               <FilePath>.\driver.h</FilePath>
             </File>
+            <File>
+              <FileName>driver_spwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\driver_spwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>debug.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\debug.h</FilePath>
+            </File>
+            <File>
+              <FileName>pot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\pot.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -418,6 +433,21 @@
               <FileName>driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_spwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\driver_spwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>pot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pot.c</FilePath>
             </File>
           </Files>
         </Group>

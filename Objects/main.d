@@ -1,3 +1,3 @@
 ./objects/main.o: main.c stm32g431xx.h \
   C:\Keil\ARM\CMSIS\6.2.0\CMSIS\Core\Include\core_cm4.h \
-  system_stm32g4xx.h driver.h led.h
+  system_stm32g4xx.h driver_spwm.h driver.h debug.h led.h pot.h
