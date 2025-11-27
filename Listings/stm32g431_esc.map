@@ -406,7 +406,7 @@ Removing Unused input sections from the image.
     Removing driver_spwm.o(.text), (0 bytes).
     Removing driver_spwm.o(.text.Driver_SPWM_GPIO_Init), (358 bytes).
     Removing driver_spwm.o(.ARM.exidx.text.Driver_SPWM_GPIO_Init), (8 bytes).
-    Removing driver_spwm.o(.text.Driver_SPWM_Timer_Init), (2 bytes).
+    Removing driver_spwm.o(.text.Driver_SPWM_Timer_Init), (150 bytes).
     Removing driver_spwm.o(.ARM.exidx.text.Driver_SPWM_Timer_Init), (8 bytes).
     Removing debug.o(.text), (0 bytes).
     Removing debug.o(.ARM.exidx.text.Debug_Struct_Init), (8 bytes).
@@ -550,7 +550,7 @@ Removing Unused input sections from the image.
     Removing system_stm32g4xx.o(.rodata.AHBPrescTable), (16 bytes).
     Removing system_stm32g4xx.o(.rodata.APBPrescTable), (8 bytes).
 
-167 unused section(s) (total 3282 bytes) removed from the image.
+167 unused section(s) (total 3430 bytes) removed from the image.
 
 ==============================================================================
 

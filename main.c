@@ -46,10 +46,10 @@ int main(void){
 		}
 		
 		if(buffer < delay){
-			buffer+=5;
+			buffer++;
 		}
 		else{
-			buffer-=5;
+			buffer--;
 		}
 		
 		if(buffer < 500){
