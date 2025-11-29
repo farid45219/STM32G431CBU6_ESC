@@ -60,14 +60,13 @@ void Driver_SPWM_Timer_Init(void){
 	
 	//Config Timer to generate PWM
 	RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+	TIM1->PSC     = 0;
 	TIM1->ARR     = 1000;
+	TIM1->CR1    |= TIM_CR1_ARPE;
 	TIM1->CCR1    = 0;
 	TIM1->CCR2    = 0;
 	TIM1->CCR3    = 0;
-	TIM1->CCR4    = 0;
-	TIM1->CCR5    = 0;
-	TIM1->CCR6    = 0;
-	TIM1->CR1    |= TIM_CR1_ARPE;
+	
 	TIM1->CCMR1  |= TIM_CCMR1_OC1M_1|TIM_CCMR1_OC1M_2|TIM_CCMR1_OC1PE;
 	TIM1->CCMR1  |= TIM_CCMR1_OC2M_1|TIM_CCMR1_OC2M_2|TIM_CCMR1_OC2PE;
 	TIM1->CCMR2  |= TIM_CCMR2_OC3M_1|TIM_CCMR2_OC3M_2|TIM_CCMR2_OC3PE;
@@ -77,17 +76,17 @@ void Driver_SPWM_Timer_Init(void){
   
 	
 	//Config UL->PC13->TIM1_CH1N->AFSEL13_AF4
-
+  
 	
 	//Config VH->PA9->TIM1_CH2->AFSEL9_AF6
-
+  
 	
 	//Config VL->PA12->TIM1_CH2N->AFSEL12_AF6
-
+  
 	
 	//Config WH->PA10->TIM1_CH3->AFSEL10_AF6
-
+  
 	
 	//Config WL->PB15->TIM1_CH3N->AFSEL15_AF4
-
+  
 }
