@@ -115,9 +115,11 @@ void Driver_SPWM_Timer_Init(void){
 }
 
 void Driver_SPWM_Sine_Table_Init(void){
+	uint16_t index = 0;
+	
 	for(int i = 0; i <= 180; i++){
     float s = sinf(i * 3.14159f / 180.0f);
-    spwm_sine_table[i] = (uint16_t)(s * TIM1->ARR);
+    spwm_sine_table[i] = (uint16_t)(s * 1000);
 		
 		if(i>180){
 			spwm_sine_table[i] = 0;
@@ -129,18 +131,23 @@ void Driver_SPWM_Sine_Table_Init(void){
 		
   }
 	
-	/*
+	//Fill values forward
 	for(int i = 0; i < 120; i++){
-    svpwm_table[i] = spwm_sine_table[i];
+    svpwm_table[index] = spwm_sine_table[i];
+		index++;
   }
 	
-	for(int i = 120; i < 240; i--){
-    svpwm_table[i] = spwm_sine_table[i-60];
+	//Fill values backward
+	for(int i = 119; i >= 0; i--){
+    svpwm_table[index] = spwm_sine_table[i];
+		index++;
   }
 	
-	for(int i = 240; i < 360; i--){
-    svpwm_table[i] = 0;
-  }*/
+	//Fill with 0
+	for(int i = 0; i < 120; i++){
+    svpwm_table[index] = 0;
+		index++;
+  }
 }
 
 void Driver_SPWM_Set_Val(uint16_t u, uint16_t v, uint16_t w){

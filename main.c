@@ -7,18 +7,6 @@
 #include "pot.h"
 
 
-uint8_t phase_index = 0;
-uint8_t phase_val[6] = {
-	0b001,
-	0b011,
-	0b010,
-	0b110,
-	0b100,
-	0b101
-};
-
-uint16_t delay = 4095, buffer = 4095;
-
 int main(void){
 	
 	LED_Init();
@@ -49,7 +37,7 @@ int main(void){
 		if(v > 360){
 			v -= 360;
 		}
-
+    
     if(w > 360){
 			w -= 360;
 		}
@@ -59,9 +47,9 @@ int main(void){
 			angle = 0;
 		}
 		
-		//Driver_SPWM_Set_Val(u, v, w);
+		Driver_SPWM_Set_Val(u, v, w);
 		
-		for(uint32_t i=0;i<100;i++){
+		for(uint32_t i=0;i<10000;i++){
 			__NOP();
 		}
 		
