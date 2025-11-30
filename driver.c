@@ -116,7 +116,7 @@ void Driver_Set_WL(uint8_t val){
 
 
 void Driver_Rough_Delay(void){
-	for(uint32_t i=0;i<100;i++){
+	for(uint32_t i=0;i<20;i++){
 		__NOP();
 	}
 }

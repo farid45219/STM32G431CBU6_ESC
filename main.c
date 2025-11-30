@@ -24,39 +24,44 @@ int main(void){
 	LED_Init();
 	Pot_Init();
 	Debug_Init(38400);
-	Driver_GPIO_Init();
-	//Driver_SPWM_GPIO_Init();
+	//Driver_GPIO_Init();
+	Driver_SPWM_GPIO_Init();
+	
 	for(uint32_t i=0;i<500000;i++){
 			__NOP();
 	}
 	
+	
+	Driver_SPWM_Timer_Init();
+	Driver_SPWM_Sine_Table_Init();
+	Driver_SPWM_Set_Val(0, 0, 0);
+	
+	uint16_t angle = 0;
+	uint16_t u, v, w;
+	
 	while(1){
 		
-		//LED_Set_State(1);
-		//LED_Set_State(0);
 		
-		//Debug_Tx_Parameter_SP("Target", Pot_ADC_Read());
-		//Debug_Tx_Parameter_NL("Current", buffer);
+		u = angle + 0;
+		v = angle + 120;
+		w = angle + 240;
 		
-		Driver_Set_Phase_Values(phase_val[phase_index]);
-		phase_index++;
-		if(phase_index >= 6){
-			phase_index = 0;
-			delay = Pot_ADC_Read();
+		if(v > 360){
+			v -= 360;
+		}
+
+    if(w > 360){
+			w -= 360;
 		}
 		
-		if(buffer < delay){
-			buffer++;
-		}
-		else{
-			buffer--;
+		angle++;
+		if(angle > 360){
+			angle = 0;
 		}
 		
-		if(buffer < 500){
-			buffer = 500;
-		}
+		//Driver_SPWM_Set_Val(u, v, w);
 		
-		for(uint32_t i=0;i<buffer;i++){
+		for(uint32_t i=0;i<100;i++){
 			__NOP();
 		}
 		
