@@ -5,7 +5,8 @@
 
 #include "stm32g431xx.h"
 
-#define  DRIVER_SPWM_CARRIER_FREQ_HZ   16000
+
+#define  DRIVER_SPWM_CARRIER_FREQ_HZ   22000
 
 
 void     Driver_SPWM_GPIO_Init(void);

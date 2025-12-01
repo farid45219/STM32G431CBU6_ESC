@@ -49,7 +49,7 @@ int main(void){
 		
 		Driver_SPWM_Set_Val(u, v, w);
 		
-		for(uint32_t i=0;i<10000;i++){
+		for(uint32_t i=0;i<1000;i++){
 			__NOP();
 		}
 		

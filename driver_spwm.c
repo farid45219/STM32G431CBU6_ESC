@@ -87,7 +87,7 @@ void Driver_SPWM_Timer_Init(void){
 	TIM1->CCER   |= TIM_CCER_CC3E | TIM_CCER_CC3NE;
   
 	//Config dead time
-	TIM1->BDTR   |= (50 << TIM_BDTR_DTG_Pos);
+	TIM1->BDTR   |= (100 << TIM_BDTR_DTG_Pos);
 	
 	TIM1->BDTR   |= TIM_BDTR_MOE;
 	
@@ -119,7 +119,7 @@ void Driver_SPWM_Sine_Table_Init(void){
 	
 	for(int i = 0; i <= 180; i++){
     float s = sinf(i * 3.14159f / 180.0f);
-    spwm_sine_table[i] = (uint16_t)(s * 1000);
+    spwm_sine_table[i] = (uint16_t)(s * (TIM1->ARR - 50));
 		
 		if(i>180){
 			spwm_sine_table[i] = 0;
