@@ -414,6 +414,16 @@
               <FileType>5</FileType>
               <FilePath>.\pot.h</FilePath>
             </File>
+            <File>
+              <FileName>timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>curr_limit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\curr_limit.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -448,6 +458,16 @@
               <FileName>pot.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\pot.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>curr_limit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\curr_limit.c</FilePath>
             </File>
           </Files>
         </Group>

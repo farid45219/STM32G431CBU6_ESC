@@ -7,7 +7,7 @@
 
 uint16_t spwm_sine_table[361], svpwm_table[361];
 
-
+volatile uint16_t u, v, w, angle = 0;
 
 
 void Driver_SPWM_GPIO_Init(void){
@@ -115,11 +115,13 @@ void Driver_SPWM_Timer_Init(void){
 }
 
 void Driver_SPWM_Sine_Table_Init(void){
-	uint16_t index = 0;
+	uint16_t index = 0, arr_max;
 	
 	for(int i = 0; i <= 180; i++){
     float s = sinf(i * 3.14159f / 180.0f);
-    spwm_sine_table[i] = (uint16_t)(s * (TIM1->ARR - 50));
+		arr_max = TIM1->ARR - 20;
+		arr_max /= DRIVER_SPWM_POWER_DIV_FACT;
+    spwm_sine_table[i] = (uint16_t)(s * arr_max);
 		
 		if(i>180){
 			spwm_sine_table[i] = 0;
@@ -156,5 +158,24 @@ void Driver_SPWM_Set_Val(uint16_t u, uint16_t v, uint16_t w){
 	TIM1->CCR3 = svpwm_table[w];
 }
 
-
+void Driver_SPWM_Update(void){
+	u = angle + 0;
+  v = angle + 120;
+	w = angle + 240;
+		
+	if(v > 360){
+		v -= 360;
+	}
+    
+  if(w > 360){
+		w -= 360;
+	}
+		
+	angle += DRIVER_SPWM_SVPWM_STEP_SIZE;
+	if(angle > 360){
+		angle = 0;
+	}
+		
+	Driver_SPWM_Set_Val(u, v, w);
+}
 
