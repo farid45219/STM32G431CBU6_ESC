@@ -7,7 +7,7 @@
 
 uint16_t spwm_sine_table[361], svpwm_table[361];
 
-volatile uint16_t u, v, w, angle = 0;
+volatile uint16_t u, v, w, angle_int = 0, angle = 0;
 
 
 void Driver_SPWM_GPIO_Init(void){
@@ -159,22 +159,23 @@ void Driver_SPWM_Set_Val(uint16_t u, uint16_t v, uint16_t w){
 }
 
 void Driver_SPWM_Update(void){
-	u = angle + 0;
-  v = angle + 120;
-	w = angle + 240;
-		
+	u = angle_int + 0;
+  v = angle_int + 120;
+	w = angle_int + 240;
+	
 	if(v > 360){
 		v -= 360;
 	}
-    
+  
   if(w > 360){
 		w -= 360;
 	}
 		
 	angle += DRIVER_SPWM_SVPWM_STEP_SIZE;
-	if(angle > 360){
+	if(angle > 3600){
 		angle = 0;
 	}
+	angle_int = angle/10;
 		
 	Driver_SPWM_Set_Val(u, v, w);
 }

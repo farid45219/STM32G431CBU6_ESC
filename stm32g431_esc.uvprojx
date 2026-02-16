@@ -424,6 +424,11 @@
               <FileType>5</FileType>
               <FilePath>.\curr_limit.h</FilePath>
             </File>
+            <File>
+              <FileName>foc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\foc.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -468,6 +473,11 @@
               <FileName>curr_limit.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\curr_limit.c</FilePath>
+            </File>
+            <File>
+              <FileName>foc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\foc.c</FilePath>
             </File>
           </Files>
         </Group>
